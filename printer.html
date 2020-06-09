@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>打印机</title>
+<meta name="author" content="(杨振振 21328946)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/blood.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">打印机</h1><h2 class="author">杨振振 21328946</h2><p class="date">Created: 2020-06-07 Sun 18:14</p>
+</section>
+<section id="table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org2e7cd42">连接</a></li>
+<li><a href="#/slide-orgdbcd18e">打印机语言</a></li>
+<li><a href="#/slide-org44c93ba">CUPS</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org2e7cd42">
+<h2 id="org2e7cd42">连接</h2>
+<div class="outline-text-2" id="text-org2e7cd42">
+</div>
+</section>
+<section id="slide-orgef6d1f6">
+<h3 id="orgef6d1f6">方式</h3>
+<ul>
+<li>网络</li>
+<li>USB</li>
+<li><p>
+并口 串口
+</p>
+
+<p>
+<img src="b.jpg" alt="b.jpg" />
+<img src="c.jpg" alt="c.jpg" />
+</p></li>
+
+</ul>
+</section>
+<section id="slide-org77191f4">
+<h3 id="org77191f4">网络打印</h3>
+
+<div class="figure">
+<p><img src="2-1.jpeg" alt="2-1.jpeg" />
+</p>
+</div>
+</section>
+<section id="slide-org77191f4-split">
+
+<h3>网络打印</h3>
+<ul>
+<li>互联网打印协议 (IPP)</li>
+<li>行式打印机监控程序 (LPD)</li>
+<li>HP Jetdirect (Socket),  又被称为 RAW 打印协议或 Socket API</li>
+<li>蓝牙</li>
+<li>隔空打印</li>
+
+</ul>
+
+</section>
+<section id="slide-org3d2909d">
+<h3 id="org3d2909d">参考链接</h3>
+<ul>
+<li>在 Mac 上添加打印机 <a href="https://support.apple.com/zh-cn/guide/mac-help/mh14004/mac">https://support.apple.com/zh-cn/guide/mac-help/mh14004/mac</a></li>
+<li>网络打印两个基本端口(LPD和9100)的相关知识 <a href="https://blog.csdn.net/gracexu/article/details/1899751">https://blog.csdn.net/gracexu/article/details/1899751</a></li>
+<li>并口、串口、COM口区别 <a href="https://www.cnblogs.com/zcshan/archive/2010/12/03/com.html">https://www.cnblogs.com/zcshan/archive/2010/12/03/com.html</a></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgdbcd18e">
+<h2 id="orgdbcd18e">打印机语言</h2>
+<div class="outline-text-2" id="text-orgdbcd18e">
+</div>
+</section>
+<section id="slide-org660b0b8">
+<h3 id="org660b0b8">GDI, Graphical Device Interface</h3>
+<div class="org-src-container">
+
+<pre  class="src src-text"><code trim>        &#24453;&#25171;&#21360;&#30340;&#25991;&#20214; --&#35745;&#31639;&#26426;--&gt; &#20809;&#26629;&#26684;&#24335; --USB--&gt; &#25171;&#21360;&#26426;
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org4ebe44d">
+<h3 id="org4ebe44d">PDL: PCL   PS</h3>
+<p>
+PCL和PS是两种标准化的页面描述语言(PDL)
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"><code trim>        &#25171;&#21360;&#20869;&#23481; --&#35745;&#31639;&#26426;--&gt; &#26631;&#20934;&#30340;&#39029;&#38754;&#25551;&#36848;&#25991;&#20214;-&#25171;&#21360;&#26426;&#25511;&#21046;&#22120;--&gt; &#20809;&#26629;&#22270;&#20687;
+</code></pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sxl.png" alt="sxl.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org0caf9f7">
+<h3 id="org0caf9f7">PPD, PostScript Printer Description</h3>
+<ul>
+<li>定制 PostScript 打印机驱动程序的行为
+<ul>
+<li>打印机驻留字体</li>
+<li>可用介质大小及方向</li>
+<li>优化的网频、网角、分辨率</li>
+<li>色彩输出</li>
+
+</ul></li>
+<li>PPD 文件是打印机厂商提供的</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc06340f">
+<h3 id="orgc06340f">参考链接</h3>
+<ul>
+<li>打印服务知识系列3-GDI、PS、PCL特点及区别 <a href="http://blog.vsharing.com/BillMa/A1102778.html">http://blog.vsharing.com/BillMa/A1102778.html</a></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org44c93ba">
+<h2 id="org44c93ba">CUPS</h2>
+<div class="outline-text-2" id="text-org44c93ba">
+</div>
+</section>
+<section id="slide-org2802853">
+<h3 id="org2802853">文件打印流程</h3>
+
+<div class="figure">
+<p><img src="p.jpg" alt="p.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-org2802853-split">
+
+<h3>文件打印流程</h3>
+
+<div class="figure">
+<p><img src="cups.jpg" alt="cups.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-orgd383a6c">
+<h3 id="orgd383a6c">文档转换过滤器</h3>
+<p>
+CUPS 标准配置，与 CUPS 一起发行的
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"><code trim>
+&#22270;&#20687;-------------------\
+ASCII &#25991;&#26412; -------------\
+                         ------------&gt; PostScript
+PDF&#25991;&#20214; ----------------/
+HP-GL/2&#30690;&#37327;&#25991;&#26723;--------/
+
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-org851e735">
+<h3 id="org851e735">接口过滤器</h3>
+<div class="org-src-container">
+
+<pre  class="src src-text"><code trim>PostScript  ----&gt; &#36807;&#28193;&#30340;&#25991;&#20214;&#26684;&#24335;
+</code></pre>
+</div>
+
+<ul>
+<li>翻译过滤器
+<ul>
+<li>在非PostScript打印机上正确打印</li>
+
+<li><p>
+PPD 将文档换成设备本地语言的过滤器
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-text"><code trim>*cupsFilter:&#12288;&#12288;"application/vnd.cups-raster 0 rastertohp
+
+MIME &#25991;&#20214; --rastetohp--&gt; HP PCL&#25968;&#25454;
+
+</code></pre>
+</div></li>
+
+<li>HPLIP</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-org1638861">
+<h3 id="org1638861">后端过滤器</h3>
+<p>
+用于并口、TCP/IP套接字连接、LPD和其它端点的连接
+</p>
+
+</section>
+<section id="slide-org5e0248b">
+<h3 id="org5e0248b">打印机驱动</h3>
+<ul>
+<li>epson 检索驱动 <a href="http://download.ebz.epson.net/dsc/search/01/search/searchModule">http://download.ebz.epson.net/dsc/search/01/search/searchModule</a></li>
+<li>惠普 HPLIP Manual Build and Install Instructions for CentOS <a href="https://developers.hp.com/hp-linux-imaging-and-printing/install/manual/distros/centos">https://developers.hp.com/hp-linux-imaging-and-printing/install/manual/distros/centos</a></li>
+
+</ul>
+
+</section>
+<section id="slide-org36462d1">
+<h3 id="org36462d1">参考链接</h3>
+<ul>
+<li>Linux 打印系统CUPS原理分析 <a href="https://www.linuxidc.com/Linux/2010-12/30698p3.htm">https://www.linuxidc.com/Linux/2010-12/30698p3.htm</a></li>
+<li>Arch CUPS <a href="https://wiki.archlinux.org/index.php/CUPS">https://wiki.archlinux.org/index.php/CUPS</a></li>
+<li>Configure CUPS Printing Server on CentOS <a href="https://techpoli.info/2016/03/14/configure-cups-printing-server-on-centos/">https://techpoli.info/2016/03/14/configure-cups-printing-server-on-centos/</a></li>
+<li>Setup a CUPS Printer on Linux <a href="https://cs.uwaterloo.ca/twiki/view/CF/CupsOnLinux">https://cs.uwaterloo.ca/twiki/view/CF/CupsOnLinux</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+slideNumber:true,
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
